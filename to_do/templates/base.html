@@ -9,7 +9,17 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">To Do</a>
+        <a class="navbar-brand" href="{% url 'home' %}">To Do</a>
+        <div class="container">
+            <ul class="nav justify-content-end">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link active" style="color: #66ffff;" href="{% url 'accounts:logout' %}">Log Out</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link active" style="color: #66ffff;" href="{% url 'accounts:login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link active" style="color: #66ffff;" href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
     {% block body_block %}
         
