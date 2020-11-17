@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^user-home/$', views.UserHomePage.as_view(), name='user_home'),
+    url(r'^logged-out/$', views.ThanksPage.as_view(), name='thanks'),
 ]
