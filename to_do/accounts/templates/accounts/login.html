@@ -1,5 +1,14 @@
 <title>Login Page</title>
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block body_block %}
+    <div class='container'>
+        <h1>Login</h1>
+        <form action="templates/index.html" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary" value="Login">
+        </form>
+    </div>
 {% endblock%}
