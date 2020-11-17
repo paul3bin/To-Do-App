@@ -1,5 +1,6 @@
 <title>Sign Up</title>
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block body_block %}
 
@@ -7,6 +8,7 @@
         <h1>Sign Up</h1>
         <form action="" method="post">
             {% csrf_token %}
+            {% bootstrap_form form %}
             <input type="submit" class="btn btn-primary" value="Sign Up">
         </form>
     </div>
