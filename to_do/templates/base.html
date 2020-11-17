@@ -9,8 +9,9 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="{% url 'home' %}">To Do</a>
         <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">To Do</a>
+            
             <ul class="nav justify-content-end">
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link active" style="color: #66ffff;" href="{% url 'accounts:logout' %}">Log Out</a></li>
