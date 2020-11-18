@@ -1,5 +1,5 @@
 from django.db.models.deletion import CASCADE
-from to_do.accounts.models import User
+from accounts.models import User
 from django.db import models
 from django.utils import timezone
 # Create your models here.
