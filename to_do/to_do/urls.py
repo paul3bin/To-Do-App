@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^user-home/$', views.UserHomePage.as_view(), name='user_home'),
     url(r'^logged-out/$', views.ThanksPage.as_view(), name='thanks'),
+    url(r'^todo/', include('todo.urls', namespace='todo')),
 ]
