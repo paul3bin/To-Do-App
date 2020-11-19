@@ -1,0 +1,10 @@
+<title>TO-DO</title>
+{% extends 'base.html' %}
+
+{% block body_block %}
+    {% for todos in todo %}
+        {{todos.title}}
+        {{todos.details}}
+        {{todos.date}}
+    {% endfor %}
+{% endblock %}
