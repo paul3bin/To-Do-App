@@ -6,10 +6,10 @@ from django.utils import timezone
 
 
 class Todo(models.Model):
-    user = models.ForeignKey(User, related_name='todos', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     details = models.TextField()
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
