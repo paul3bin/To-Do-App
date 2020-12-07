@@ -8,5 +8,8 @@ class ToDo(models.Model):
     task = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        unique_together = (('task'), ('date'),)
+        
     def __str__(self):
         return self.title
