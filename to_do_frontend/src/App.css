@@ -33,3 +33,17 @@ button:disabled{
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.Task-List{
+  text-align: center;
+}
+
+.Task-Item{
+  padding: 80px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.Icons{
+  cursor: pointer;
+}
