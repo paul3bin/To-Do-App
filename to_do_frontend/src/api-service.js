@@ -48,7 +48,7 @@ export class API{
     }
 
     static addTask(body, token){
-        return fetch(`http://127.0.0.1:8000/api/movies/`, {
+        return fetch(`http://127.0.0.1:8000/api/task/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
