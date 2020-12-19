@@ -36,6 +36,7 @@ function App() {
 
   const addNewTask = () => {
     API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
+    setNewTask('')
   }
   
   return (
