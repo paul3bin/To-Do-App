@@ -13,6 +13,9 @@ function App() {
 
   const [tasks, setTasks] = useState([]);
 
+  const [newTask, setNewTask] = useState();
+
+  const user = tasks[0]
   
   useEffect(() => {
     if(!token['token']) window.location.href = '/'
@@ -30,6 +33,10 @@ function App() {
     const updatedTaskList = tasks.filter(tsk => tsk.id !== task.id)
     setTasks(updatedTaskList)
   }
+
+  const addNewTask = () => {
+    API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
+  }
   
   return (
     <div className="App">
@@ -40,9 +47,11 @@ function App() {
       <div>
         <TasksList 
           tasks={tasks}
-          updateTaskList={updateTaskListAction}
-        />
-        <button className='btn btn-success'>Add New Task</button>
+          updateTaskList={updateTaskListAction}/>
+      </div>
+      <div className='addTaskComponent'>
+        <input type="text" placeholder='New Task' value={newTask} onChange={evnt => setNewTask(evnt.target.value)}/>
+        <button className='btn btn-success' onClick={addNewTask}>Add New Task</button>
       </div>
     </div>
   );
