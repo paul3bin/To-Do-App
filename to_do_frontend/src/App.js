@@ -13,7 +13,7 @@ function App() {
 
   const [tasks, setTasks] = useState([]);
 
-  const [newTask, setNewTask] = useState();
+  const [newTask, setNewTask] = useState('');
 
   const user = tasks[0]
   
@@ -35,14 +35,22 @@ function App() {
   }
 
   const addNewTask = () => {
-    API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
-    setNewTask('')
+    if (newTask.length >200){
+      alert('Task length cannot be greater than 200.')
+    }
+    else if (newTask.length === 0){
+      alert('Empty task cannot be added!')
+    }
+    else{
+      API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
+      setNewTask('')
+    }
   }
   
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
-        <h2>Tasks To-Do</h2>
+        <h2>To-Do</h2>
         <FontAwesomeIcon icon={faSignOutAlt} className="Icons" onClick={logoutUser}/>
       </nav>
       <div>
