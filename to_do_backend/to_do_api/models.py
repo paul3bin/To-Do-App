@@ -12,4 +12,4 @@ class ToDo(models.Model):
         unique_together = (('task'), ('date'),)
         
     def __str__(self):
-        return self.title
+        return self.task
