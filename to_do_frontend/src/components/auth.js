@@ -36,9 +36,9 @@ function Auth(){
                 {isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
             </header>
             <div className='Login-container'>
-                <input id='username' type='text' placeholder='Username' value={username} 
+                <input id='username' type='text' placeholder=' Enter Username' value={username} 
                 onChange={evnt => setUsername(evnt.target.value)}/><br/>
-                <input id='password' type='password' placeholder='Password' value={password} 
+                <input id='password' type='password' placeholder='Enter Password' value={password} 
                 onChange={evnt => setPassword(evnt.target.value)}/><br/>
 
                 {isLoginView ? 
