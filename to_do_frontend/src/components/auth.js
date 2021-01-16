@@ -3,8 +3,6 @@ import { useCookies } from 'react-cookie';
 import { API } from '../api-service'
 
 function Auth(){
-    
-    const [isLoginView, setIsLoginView] = useState(true);
 
     const [username, setUsername] = useState('');
     
@@ -21,36 +19,39 @@ function Auth(){
     }
 
     const registerClicked = () => {
-        API.registerUser({username, password})
-        .then(resp => setToken('token', resp.token))
-        .catch(error => console.log(error))
+        window.location.href = '/register-user'
     }
 
     useEffect( () => {
-        if(token['token']) window.location.href = '/tasks';
+        if (token['token']==='undefined'){
+            alert('Wrong username or password.')
+            setToken('token', '')
+            setUsername('')
+            setPassword('')
+        }
+        else{
+            if(token['token']) window.location.href = '/tasks';
+        }
     }, [token])
 
     return (
         <div className='App'>
             <header className='App-header'>
-                {isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
-            </header>
-            <div className='Login-container'>
-                <input id='username' type='text' placeholder=' Enter Username' value={username} 
-                onChange={evnt => setUsername(evnt.target.value)}/><br/>
-                <input id='password' type='password' placeholder='Enter Password' value={password} 
-                onChange={evnt => setPassword(evnt.target.value)}/><br/>
+                <h1>Login</h1>
+                <div class="mb-3">
+                    <input id='UserName' type='text' className="form-control" placeholder='Username' value={username} 
+                        onChange={evnt => setUsername(evnt.target.value)}/>
+                </div>
+                <div class="mb-3">
+                    <input id='password' type='password' className="form-control" placeholder='Password' value={password} 
+                        onChange={evnt => setPassword(evnt.target.value)}/>
+                </div>
 
-                {isLoginView ? 
                 <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
                 onClick={loginClicked}>Login</button>
-                : <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
-                onClick={registerClicked}>Register</button>}
 
-                {isLoginView ? 
-                <p>Don't have an account? Register <a href='#' onClick={()=> setIsLoginView(false)}>here</a>.</p> 
-                : <p>Already have an account? Login <a href='#' onClick={()=> setIsLoginView(true)}>here</a>.</p>}
-            </div>
+                <p className='p-login-register'>Don't have an account? Register <a href='#' onClick={registerClicked}>here</a>.</p> 
+            </header>
         </div>
     )
 }
