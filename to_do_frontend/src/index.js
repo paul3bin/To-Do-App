@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {Route, BrowserRouter} from 'react-router-dom';
 import {CookiesProvider} from 'react-cookie';
 import {Auth} from './components/auth'
+import {RegisterUser} from './components/user_register'
 
 function Router(){
   return(
@@ -14,6 +15,7 @@ function Router(){
         <BrowserRouter>
           <Route exact path="/" component={Auth}/>
           <Route exact path="/tasks" component={App}/>
+          <Route exact path="/register-user" component={RegisterUser}/>
         </BrowserRouter>
       </CookiesProvider>
     </React.StrictMode>
