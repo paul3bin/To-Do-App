@@ -42,7 +42,10 @@ function App() {
       alert('Empty task cannot be added!')
     }
     else{
+      const newTaskAdded = [...tasks, newTask]
+      setTasks(newTaskAdded)
       API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
+      // API.getTasks(token['token']).then(resp => setTasks(resp))
       setNewTask('')
     }
   }
