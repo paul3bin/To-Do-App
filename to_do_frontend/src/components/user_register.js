@@ -31,7 +31,8 @@ function RegisterUser(){
                 </div>
                 <div class="mb-3">
                     <input id='password' type='password' className="form-control" placeholder='Password' value={password} 
-                        onChange={evnt => setPassword(evnt.target.value)}/>
+                        onChange={evnt => setPassword(evnt.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                 </div>
 
                 <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
