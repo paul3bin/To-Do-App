@@ -11,6 +11,8 @@ function App() {
   
   const [token, setToken, deleteToken] = useCookies(['token']);
 
+  const [userID, setUserID, deleteUserID] = useCookies(['id']);
+
   const [tasks, setTasks] = useState([]);
 
   const [newTask, setNewTask] = useState('');
@@ -44,7 +46,7 @@ function App() {
     else{
       const newTaskAdded = [...tasks, newTask]
       setTasks(newTaskAdded)
-      API.addTask({task: newTask, user: user.user},token['token']).catch(error => console.log(error))
+      API.addTask({task: newTask, user: userID['id']},token['token']).catch(error => console.log(error))
       // API.getTasks(token['token']).then(resp => setTasks(resp))
       setNewTask('')
     }
