@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { API } from '../api-service'
+import {Link} from 'react-router-dom';
+
+import { API } from '../api-service';
+import {RegisterUser} from '../components/user_register'
+
 
 function Auth(){
 
@@ -22,10 +26,6 @@ function Auth(){
         API.loginUser({username, password})
         .then(resp => setToken('id', resp.id))
         .catch(error => console.log(error))
-    }
-
-    const registerClicked = () => {
-        window.location.href = '/register-user'
     }
 
     useEffect( () => {
@@ -56,7 +56,7 @@ function Auth(){
                 <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
                 onClick={loginClicked}>Login</button>
 
-                <p className='p-login-register'>Don't have an account? Register <a href='#' onClick={registerClicked}>here</a>.</p> 
+                <p className='p-login-register'>Don't have an account? Register <Link to="/register-user">here</Link>.</p> 
             </header>
         </div>
     )
