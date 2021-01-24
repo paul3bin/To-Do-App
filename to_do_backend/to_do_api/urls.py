@@ -10,4 +10,5 @@ router.register('task', views.ToDoViewSet)
 
 urlpatterns = [
     url('', include(router.urls)),
+    url(r'^authenticate/', views.CustomObtainAuthToken.as_view()),
 ]
