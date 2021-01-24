@@ -1,7 +1,7 @@
 export class API{
     static loginUser(body){
         return fetch(
-            `http://127.0.0.1:8000/auth/`, 
+            `http://127.0.0.1:8000/api/authenticate/`, 
             {
                 method: 'POST',
                 headers: {
