@@ -25,6 +25,7 @@ function App() {
 
   const logoutUser = () => {
     deleteToken(['token']);
+    deleteUserID(['id']);
   }
 
   useEffect(() => {
