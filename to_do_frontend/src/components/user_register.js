@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {API} from '../api-service'
+import {API} from '../api-service';
+import {Link} from 'react-router-dom';
+import {auth} from '../components/auth';
 
 function RegisterUser(){
 
@@ -8,11 +10,6 @@ function RegisterUser(){
     const [password, setPassword] = useState('');
 
     const isDisabled = username.length===0||password.length===0;
-
-
-    const loginClicked = () => {
-        window.location.href = '/'
-    }
 
     const registerClicked = () => {
         API.registerUser({username, password})
@@ -38,7 +35,7 @@ function RegisterUser(){
                 <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
                 onClick={registerClicked}>Login</button>
 
-                <p className='p-login-register'>Already have an account? Login <a href='#' onClick={loginClicked}>here</a>.</p> 
+                <p className='p-login-register'>Already have an account? Login <Link to="/">here</Link>.</p> 
             </header>
         </div>
     )
