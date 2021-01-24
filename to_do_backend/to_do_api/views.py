@@ -1,8 +1,12 @@
 from django.contrib.auth.models import User
+from . import serializers, models
+
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import viewsets
-from . import serializers, models
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -22,3 +26,9 @@ class ToDoViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return super().get_queryset().filter(user = self.request.user)
+
+class CustomObtainAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
+        token = Token.objects.get(key=response.data['token'])
+        return Response({'token': token.key, 'id': token.user_id})
