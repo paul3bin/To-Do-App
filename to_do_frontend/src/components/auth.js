@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie';
 import {Link, withRouter} from 'react-router-dom';
 
 import { API } from '../api-service';
-import {RegisterUser} from '../components/user_register'
+import {RegisterUser} from '../components/user_register';
 
 
 function Auth(){
@@ -26,7 +26,7 @@ function Auth(){
         .catch(error => console.log(error))
 
         API.loginUser({username, password})
-        .then(resp => setToken('id', resp.id))
+        .then(resp => setUserID('id', resp.id))
         .catch(error => console.log(error))
     }
 
