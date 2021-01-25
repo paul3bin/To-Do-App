@@ -8,6 +8,8 @@ import { TasksList } from './components/list-tasks';
 import {API} from './api-service'
 
 function App() {
+
+  document.title = 'Tasks';
   
   const [token, setToken, deleteToken] = useCookies(['token']);
 
