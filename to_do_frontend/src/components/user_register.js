@@ -5,6 +5,8 @@ import {auth} from '../components/auth';
 
 function RegisterUser(){
 
+    document.title = 'Register User';
+
     const [username, setUsername] = useState('');
     
     const [password, setPassword] = useState('');
