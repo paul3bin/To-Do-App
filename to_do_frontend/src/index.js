@@ -5,8 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Route, BrowserRouter} from 'react-router-dom';
 import {CookiesProvider} from 'react-cookie';
-import {Auth} from './components/auth'
-import {RegisterUser} from './components/user_register'
+
+import {Auth} from './components/auth';
+import {RegisterUser} from './components/user_register';
+import {AddNewTask} from './components/add_new_task';
+
 
 function Router(){
   return(
@@ -16,6 +19,7 @@ function Router(){
           <Route exact path="/" component={Auth}/>
           <Route exact path="/tasks" component={App}/>
           <Route exact path="/register-user" component={RegisterUser}/>
+          <Route exact path="/add-task" component={AddNewTask}/>
         </BrowserRouter>
       </CookiesProvider>
     </React.StrictMode>
