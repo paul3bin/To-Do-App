@@ -2,12 +2,12 @@
   text-align: center;
   min-height: 100vh;
   color: white;
-  background-color: #282c34;
+  background-color: #7e7f81;
   padding: 20px;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #7e7f81;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -61,4 +61,20 @@ button:disabled{
 }
 .p-login-register{
   font-size: 13px;
+}
+
+.Logout_NewTask_Nav{
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+}
+
+.addTaskButton{
+  right: 0px;
+}
+
+.card-body{
+  background-color: rgb(53, 49, 49);
+  border-color: black;
+  color: black;
 }
