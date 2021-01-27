@@ -58,8 +58,10 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
-        <h2>To-Do</h2>
-        <FontAwesomeIcon icon={faSignOutAlt} className="Icons" onClick={logoutUser}/>
+        <div className='Logout_NewTask_Nav'>
+          <h2>To-Do</h2>
+          <FontAwesomeIcon icon={faSignOutAlt} className="Icons" onClick={logoutUser}/>
+        </div>
       </nav>
       <div>
         <TasksList 
