@@ -45,20 +45,24 @@ function Auth(){
     return (
         <div className='App'>
             <header className='App-header'>
-                <h1>Login</h1>
-                <div class="mb-3">
-                    <input id='UserName' type='text' className="form-control" placeholder='Username' value={username} 
-                        onChange={evnt => setUsername(evnt.target.value)}/>
-                </div>
-                <div class="mb-3">
-                    <input id='password' type='password' className="form-control" placeholder='Password' value={password} 
-                        onChange={evnt => setPassword(evnt.target.value)}/>
-                </div>
+                <div className="card">
+                    <div class="card-body">
+                        <h1>Login</h1>  
+                        <div class="mb-3">
+                            <input id='UserName' type='text' className="form-control" placeholder='Username' value={username} 
+                                onChange={evnt => setUsername(evnt.target.value)}/>
+                        </div>
+                        <div class="mb-3">
+                            <input id='password' type='password' className="form-control" placeholder='Password' value={password} 
+                            onChange={evnt => setPassword(evnt.target.value)}/>
+                        </div>
 
-                <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
-                onClick={loginClicked}>Login</button>
+                        <button disabled={isDisabled} className='btn btn-outline-primary Login-items' 
+                            onClick={loginClicked}>Login</button>
 
-                <p className='p-login-register'>Don't have an account? Register <Link to="/register-user">here</Link>.</p> 
+                        <p className='p-login-register'>Don't have an account? Register <Link to="/register-user">here</Link>.</p> 
+                    </div>
+                </div>
             </header>
         </div>
     )
